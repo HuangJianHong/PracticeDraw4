@@ -45,8 +45,9 @@ public class Practice02ClipPathView extends View {
         path.addCircle(point1.x + width - 120, point1.y + height - 120, 150, Path.Direction.CW);
 
         path1 = new Path();
+        path.setFillType(Path.FillType.EVEN_ODD);   //设置路径，重叠的模式，和路径方向存在关系;
         path1.addRect(point2.x, point2.y, point2.x + width, point2.y + height, Path.Direction.CW);
-        path1.addCircle(point2.x + width - 120, point2.y + height - 120, 150, Path.Direction.CW);
+        path1.addCircle(point2.x + width - 120, point2.y + height - 120, 150, Path.Direction.CCW);
     }
 
     @Override
