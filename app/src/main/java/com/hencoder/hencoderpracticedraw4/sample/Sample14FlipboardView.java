@@ -56,7 +56,7 @@ public class Sample14FlipboardView extends View {
     }
 
     @SuppressWarnings("unused")
-    public void setDegree(int degree) {
+    public void setDegree(int degree) {      //setDegree方法， 做动画效果旋转使用，ObjectAnimator
         this.degree = degree;
         invalidate();
     }
@@ -82,7 +82,7 @@ public class Sample14FlipboardView extends View {
         canvas.save();
 
         if (degree < 90) {
-            canvas.clipRect(0, centerY, getWidth(), getHeight());
+            canvas.clipRect(0, centerY, getWidth(), getHeight());    //这个时候的坐标系还是View坐标系。
         } else {
             canvas.clipRect(0, 0, getWidth(), centerY);
         }
