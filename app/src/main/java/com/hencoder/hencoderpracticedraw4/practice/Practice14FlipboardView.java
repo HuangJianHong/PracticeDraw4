@@ -72,7 +72,21 @@ public class Practice14FlipboardView extends View {
         int x = centerX - bitmapWidth / 2;
         int y = centerY - bitmapHeight / 2;
 
+        //将动画的上下部分区分开绘制
+        //上半部分，静态绘制；
         canvas.save();
+        canvas.clipRect(x,y, getWidth(), centerY);
+        canvas.drawBitmap(bitmap, x, y, paint);
+        canvas.restore();
+
+
+        //下半部分动效绘制;
+        canvas.save();
+        if (degree < 90 ){
+            canvas.clipRect(0, centerY, getWidth(), getHeight());   //图片的下半部分
+        }else {
+            canvas.clipRect(x,y,  getWidth(), centerY) ;  //图片的上半部分
+        }
 
         camera.save();
         camera.rotateX(degree);
